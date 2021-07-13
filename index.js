@@ -11,6 +11,21 @@ const tutorials = [
   'what is JSONP?'
 ];
 
+//take each title and split into array of words
+//run nested arrays through fxn to capitize first letter
 const titleCased = () => {
-  return tutorials
+  const nestedTitles = tutorials.map(ele => ele.split(' '));
+  return nestedTitles.map(titleArr => capitilizeTitle(titleArr));
+}
+
+// const titleCased(tutorials){
+//   const nestedTitles = tutorials.map(ele => ele.split(' '));
+//   return nestedTitles.map(titleArr => capitilizeTitle(titleArr));
+//   }
+
+
+// fxn to capitlize 1st letter, concat rest of word & join to single title
+function capitilizeTitle(titleArr) {
+  const newTitle = titleArr.map(ele => ele[0].toUpperCase() + ele.slice(1));
+  return newTitle.join(' ');
 }
